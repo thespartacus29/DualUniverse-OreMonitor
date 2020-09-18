@@ -1,0 +1,95 @@
+function round(number,decimals)
+    local power = 10^decimals
+    return math.floor((number/1000) * power) / power
+end 
+
+function oreStatus(percent)
+    if percent <= 25 then return "<th style=\"color: red;\">LOW</th>"
+    elseif percent > 25 and percent < 50 then return "<th style=\"color: orange;\">LOW</th>"
+    else return "<th style=\"color: green;\">GOOD</th>"
+    end 
+end
+    
+-- Acanthite Variables 
+local maxAcanthite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightAcanthite = 1.28 --export:
+local massAcanthite = round(math.ceil(acanthite.getItemsMass()),1)
+local percentAcanthite = math.ceil(((math.ceil((acanthite.getItemsMass()/weightAcanthite) - 0.5)/maxAcanthite)*100))
+local statusAcanthite = oreStatus(percentAcanthite)
+    
+-- Garnierite Variables
+local maxGarnierite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightGarnierite = 1.35 --export:
+local massGarnierite = round(math.ceil(garnierite.getItemsMass()),1)
+local percentGarnierite = math.ceil(((math.ceil((garnierite.getItemsMass()/weightGarnierite) - 0.5)/maxGarnierite)*100))
+local statusGarnierite = oreStatus(percentGarnierite)
+
+-- Petalite Variables
+local maxPetalite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightPetalite = 5.04 --export:
+local massPetalite = round(math.ceil(petalite.getItemsMass()),1)
+local percentPetalite = math.ceil(((math.ceil((petalite.getItemsMass()/weightPetalite) - 0.5)/maxPetalite)*100))
+local statusPetalite = oreStatus(percentPetalite)
+
+-- Pyrite Variables
+local maxPyrite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightPyrite = 2.65 --export:
+local massPyrite = round(math.ceil(pyrite.getItemsMass()),1)
+local percentPyrite = math.ceil(((math.ceil((pyrite.getItemsMass()/weightPyrite) - 0.5)/maxPyrite)*100))
+local statusPyrite = oreStatus(percentPyrite)
+
+
+html = [[
+<div class="bootstrap">
+<h1 style="
+	font-size: 8em;
+">T3 Ore Status</h1>
+<table 
+style="
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 4em;
+">
+	</br>
+	<tr style="
+		width: 100%;
+		margin-bottom: 30px;
+		background-color: blue;
+		color: white;
+	">
+		<th>Ore</th>
+		<th>Qty</th>
+		<th>Levels</th>
+		<th>Status</th>
+	<tr>
+		<th>Acanthite</th>
+		<th>]]..massAcanthite..[[ t</th>
+		<th>]]..percentAcanthite..[[%</th>
+		]]..statusAcanthite..[[
+	</tr>
+	<tr>
+		<th>Garnierite</th>
+		<th>]]..massGarnierite..[[ t</th>
+		<th>]]..percentGarnierite..[[%</th>
+		]]..statusGarnierite..[[
+	</tr>
+	<tr>
+		<th>Petalite</th>
+		<th>]]..massPetalite..[[ t</th>
+		<th>]]..percentPetalite..[[%</th>
+		]]..statusPetalite..[[
+	</tr>
+	<tr>
+		<th>Pyrite</th>
+		<th>]]..massPyrite..[[ t</th>
+		<th>]]..percentPyrite..[[%</th>
+		]]..statusPyrite..[[
+	</tr>
+
+</table>
+</div>
+]]
+
+screen.setHTML(html)
