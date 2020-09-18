@@ -42,6 +42,11 @@ Under Unit add the following filters/code
   `screen.clear()` ( not required but you can use to clear the html on the screen by deactivating the programming board linked to the screen )
 3. tick(Live) (note that the name you enter for this tick needs to match the name of the timer entered in the start() filter above )
 
+## Parameters
+Each script containes two parameters per ore
+- max<<orename>> ( This value represents the maximum mass in the container for this ore. This needs to be adjusted to account for 1. the difference on talents per player and 2. if you use different size containers per ore )
+- weight<<orename>> ( Added this as a parameter just in case these values get adjusted in a future patch, it can be easily updated without touching the code )
+
 ## Script setup
 In the lua editor enter the code for each script that matches the programming board. i.e programming board 1 under tick enter the code in T1 script and programing board 2 enter the code for T2 script etc
   
