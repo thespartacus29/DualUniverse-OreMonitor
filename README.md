@@ -5,7 +5,7 @@ This set of LUA scripts will help you setup screens that display ore name | quan
 
 - 5 Screens M
 - 5 Programming Boards
-- 21 Item containers
+- 20 Item containers
 - 1 Switch
 - 1 Relay
 
