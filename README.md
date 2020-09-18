@@ -50,4 +50,5 @@ Each script containes two parameters per ore
 ## Script setup
 In the lua editor enter the code for each script that matches the programming board. i.e programming board 1 under tick enter the code in T1 script and programing board 2 enter the code for T2 script etc
   
-
+## Script Quick Setup
+For each Tier script there is a quick setup file. The code in these files can be copied and to use simply right-click on a programming board > Advanced > Paste Lua configuration from clipboard. This will automatically name the slots, add filters and code. However, keep in mind you will still need to make the linkages and ensure each slot is linked to the correct container.
