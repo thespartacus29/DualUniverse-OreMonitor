@@ -12,7 +12,7 @@ end
     
 -- Chromite Variables 
 local maxChromite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightChromite = 1.28 --export:
+local weightChromite = 4.54 --export:
 local massChromite = round(math.ceil(chromite.getItemsMass()),1)
 local percentChromite = math.ceil(((math.ceil((chromite.getItemsMass()/weightChromite) - 0.5)/maxChromite)*100))
 local statusChromite = oreStatus(percentChromite)
@@ -20,21 +20,21 @@ local statusChromite = oreStatus(percentChromite)
     
 -- Limestone Variables
 local maxLimestone = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightLimestone = 1.35 --export:
+local weightLimestone = 2.71 --export:
 local massLimestone = round(math.ceil(limestone.getItemsMass()),1)
 local percentLimestone = math.ceil(((math.ceil((limestone.getItemsMass()/weightLimestone) - 0.5)/maxLimestone)*100))
 local statusLimestone = oreStatus(percentLimestone)
 
 -- Malachite Variables
 local maxMalachite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightMalachite = 5.04 --export:
+local weightMalachite = 4.00 --export:
 local massMalachite = round(math.ceil(malachite.getItemsMass()),1)
 local percentMalachite = math.ceil(((math.ceil((malachite.getItemsMass()/weightMalachite) - 0.5)/maxMalachite)*100))
 local statusMalachite = oreStatus(percentMalachite)
 
 -- Natron Variables
 local maxNatron = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightNatron = 2.65 --export:
+local weightNatron = 1.55 --export:
 local massNatron = round(math.ceil(natron.getItemsMass()),1)
 local percentNatron = math.ceil(((math.ceil((natron.getItemsMass()/weightNatron) - 0.5)/maxNatron)*100))
 local statusNatron = oreStatus(percentNatron)
