@@ -39,6 +39,7 @@ Under Unit add the following filters/code
   `unit.setTimer("Live",1)`
   `switch.activate()` ** ONLY in Programming board 1 **
 2. stop()3
+  `switch.deactivate()` ** ONLY in Programming board 1 **
   `screen.clear()` ( not required but you can use to clear the html on the screen by deactivating the programming board linked to the screen )
 3. tick(Live) (note that the name you enter for this tick needs to match the name of the timer entered in the start() filter above )
 
