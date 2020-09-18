@@ -12,28 +12,28 @@ end
     
 -- Cobaltite Variables 
 local maxCobaltite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightCobaltite = 1.28 --export:
+local weightCobaltite = 6.33 --export:
 local massCobaltite = round(math.ceil(cobaltite.getItemsMass()),1)
 local percentCobaltite = math.ceil(((math.ceil((cobaltite.getItemsMass()/weightCobaltite) - 0.5)/maxCobaltite)*100))
 local statusCobaltite = oreStatus(percentCobaltite)
     
 -- Cryolite Variables
 local maxCryolite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightCryolite = 1.35  --export:
+local weightCryolite = 2.95  --export:
 local massCryolite = round(math.ceil(cryolite.getItemsMass()),1)
 local percentCryolite = math.ceil(((math.ceil((cryolite.getItemsMass()/weightCryolite) - 0.5)/maxCryolite)*100))
 local statusCryolite = oreStatus(percentCryolite)
 
 -- Gold Variables
 local maxGold = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightGold = 5.04  --export:
+local weightGold = 19.3  --export:
 local massGold = round(math.ceil(gold.getItemsMass()),1)
 local percentGold = math.ceil(((math.ceil((gold.getItemsMass()/weightGold) - 0.5)/maxGold)*100))
 local statusGold = oreStatus(percentGold)
 
 -- Kolbeckite Variables
 local maxKolbeckite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightKolbeckite = 2.65  --export:
+local weightKolbeckite = 2.37  --export:
 local massKolbeckite = round(math.ceil(kolbeckite.getItemsMass()),1)
 local percentKolbeckite = math.ceil(((math.ceil((kolbeckite.getItemsMass()/weightKolbeckite) - 0.5)/maxKolbeckite)*100))
 local statusKolbeckite = oreStatus(percentKolbeckite)
