@@ -1,0 +1,108 @@
+function round(number,decimals)
+    local power = 10^decimals
+    return math.floor((number/1000) * power) / power
+end 
+
+function oreStatus(percent)
+    if percent <= 25 then return "<th style=\"color: red;\">LOW</th>"
+    elseif percent > 25 and percent < 50 then return "<th style=\"color: orange;\">LOW</th>"
+    else return "<th style=\"color: green;\">GOOD</th>"
+    end 
+end
+    
+-- Columbite Variables 
+local maxColumbite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightColumbite = 1.28 --export:
+local massColumbite = round(math.ceil(columbite.getItemsMass()),1)
+local percentColumbite = math.ceil(((math.ceil((Columbite.getItemsMass()/weightColumbite) - 0.5)/maxColumbite)*100))
+local statusColumbite = oreStatus(percentColumbite)
+    
+-- Illmenite Variables
+local maxIllmenite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightIllmenite = 1.35 --export:
+local massIllmenite = round(math.ceil(illmenite.getItemsMass()),1)
+local percentIllmenite = math.ceil(((math.ceil((Illmenite.getItemsMass()/weightIllmenite) - 0.5)/maxIllmenite)*100))
+local statusIllmenite = oreStatus(percentIllmenite)
+
+-- Rhodonite Variables
+local maxRhodonite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightRhodonite = 5.04 --export:
+local massRhodonite = round(math.ceil(rhodonite.getItemsMass()),1)
+local percentRhodonite = math.ceil(((math.ceil((Rhodonite.getItemsMass()/weightRhodonite) - 0.5)/maxRhodonite)*100))
+local statusRhodonite = oreStatus(percentRhodonite)
+
+-- Thoramine Variables
+local maxThoramine = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightThoramine = 2.65 --export:
+local massThoramine = round(math.ceil(thoramine.getItemsMass()),1)
+local percentThoramine = math.ceil(((math.ceil((Thoramine.getItemsMass()/weightThoramine) - 0.5)/maxThoramine)*100))
+local statusThoramine = oreStatus(percentThoramine)
+
+-- Vanadinite Variables
+local maxVanadinite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightVanadinite = 2.65 --export:
+local massVanadinite = round(math.ceil(vanadinite.getItemsMass()),1)
+local percentVanadinite = math.ceil(((math.ceil((vanadinite.getItemsMass()/weightThoramine) - 0.5)/maxThoramine)*100))
+local statusVanadinite = oreStatus(percentVanadinite)
+
+
+html = [[
+<div class="bootstrap">
+<h1 style="
+	font-size: 8em;
+">T5 Ore Status</h1>
+<table 
+style="
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 4em;
+">
+	</br>
+	<tr style="
+		width: 100%;
+		margin-bottom: 30px;
+		background-color: blue;
+		color: white;
+	">
+		<th>Ore</th>
+		<th>Qty</th>
+		<th>Levels</th>
+		<th>Status</th>
+	<tr>
+		<th>Columbite</th>
+		<th>]]..massColumbite..[[ t</th>
+		<th>]]..percentColumbite..[[%</th>
+		]]..statusColumbite..[[
+	</tr>
+	<tr>
+		<th>Illmenite</th>
+		<th>]]..massIllmenite..[[ t</th>
+		<th>]]..percentIllmenite..[[%</th>
+		]]..statusIllmenite..[[
+	</tr>
+	<tr>
+		<th>Rhodonite</th>
+		<th>]]..massRhodonite..[[ t</th>
+		<th>]]..percentRhodonite..[[%</th>
+		]]..statusRhodonite..[[
+	</tr>
+	<tr>
+		<th>Thoramine</th>
+		<th>]]..massThoramine..[[ t</th>
+		<th>]]..percentThoramine..[[%</th>
+		]]..statusThoramine..[[
+	</tr>
+	<tr>
+		<th>Vanadinite</th>
+		<th>]]..massVanadinite..[[ t</th>
+		<th>]]..percentVanadinite..[[%</th>
+		]]..statusVanadinite..[[
+	</tr>
+
+</table>
+</div>
+]]
+
+screen.setHTML(html)
