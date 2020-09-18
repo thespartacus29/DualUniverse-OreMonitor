@@ -19,21 +19,21 @@ local statusBauxite = oreStatus(percentBauxite)
     
 -- Coal Variables
 local maxCoal = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightCoal = 1.35
+local weightCoal = 1.35 --export:
 local massCoal = round(math.ceil(coal.getItemsMass()),1)
 local percentCoal = math.ceil(((math.ceil((coal.getItemsMass()/weightCoal) - 0.5)/maxCoal)*100))
 local statusCoal = oreStatus(percentCoal)
 
 -- Hermatite Variables
 local maxHermatite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightHermatite = 5.04
+local weightHermatite = 5.04 --export:
 local massHermatite = round(math.ceil(hermatite.getItemsMass()),1)
 local percentHermatite = math.ceil(((math.ceil((hermatite.getItemsMass()/weightHermatite) - 0.5)/maxHermatite)*100))
 local statusHermatite = oreStatus(percentHermatite)
 
 -- Quartz Variables
 local maxQuartz = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightQuartz = 2.65
+local weightQuartz = 2.65 --export:
 local massQuartz = round(math.ceil(quartz.getItemsMass()),1)
 local percentQuartz = math.ceil(((math.ceil((quartz.getItemsMass()/weightQuartz) - 0.5)/maxQuartz)*100))
 local statusQuartz = oreStatus(percentQuartz)
