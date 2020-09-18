@@ -12,28 +12,28 @@ end
     
 -- Acanthite Variables 
 local maxAcanthite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightAcanthite = 1.28 --export:
+local weightAcanthite = 7.2 --export:
 local massAcanthite = round(math.ceil(acanthite.getItemsMass()),1)
 local percentAcanthite = math.ceil(((math.ceil((acanthite.getItemsMass()/weightAcanthite) - 0.5)/maxAcanthite)*100))
 local statusAcanthite = oreStatus(percentAcanthite)
     
 -- Garnierite Variables
 local maxGarnierite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightGarnierite = 1.35 --export:
+local weightGarnierite = 2.6 --export:
 local massGarnierite = round(math.ceil(garnierite.getItemsMass()),1)
 local percentGarnierite = math.ceil(((math.ceil((garnierite.getItemsMass()/weightGarnierite) - 0.5)/maxGarnierite)*100))
 local statusGarnierite = oreStatus(percentGarnierite)
 
 -- Petalite Variables
 local maxPetalite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightPetalite = 5.04 --export:
+local weightPetalite = 2.41 --export:
 local massPetalite = round(math.ceil(petalite.getItemsMass()),1)
 local percentPetalite = math.ceil(((math.ceil((petalite.getItemsMass()/weightPetalite) - 0.5)/maxPetalite)*100))
 local statusPetalite = oreStatus(percentPetalite)
 
 -- Pyrite Variables
 local maxPyrite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightPyrite = 2.65 --export:
+local weightPyrite = 5.01 --export:
 local massPyrite = round(math.ceil(pyrite.getItemsMass()),1)
 local percentPyrite = math.ceil(((math.ceil((pyrite.getItemsMass()/weightPyrite) - 0.5)/maxPyrite)*100))
 local statusPyrite = oreStatus(percentPyrite)
