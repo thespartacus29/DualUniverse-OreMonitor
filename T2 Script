@@ -1,0 +1,96 @@
+function round(number,decimals)
+    local power = 10^decimals
+    return math.floor((number/1000) * power) / power
+end 
+
+function oreStatus(percent)
+    if percent <= 25 then return "<th style=\"color: red;\">LOW</th>"
+    elseif percent > 25 and percent < 50 then return "<th style=\"color: orange;\">LOW</th>"
+    else return "<th style=\"color: green;\">GOOD</th>"
+    end 
+end
+    
+-- Chromite Variables 
+local maxChromite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightChromite = 1.28 --export:
+local massChromite = round(math.ceil(chromite.getItemsMass()),1)
+local percentChromite = math.ceil(((math.ceil((chromite.getItemsMass()/weightChromite) - 0.5)/maxChromite)*100))
+local statusChromite = oreStatus(percentChromite)
+
+    
+-- Limestone Variables
+local maxLimestone = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightLimestone = 1.35 --export:
+local massLimestone = round(math.ceil(limestone.getItemsMass()),1)
+local percentLimestone = math.ceil(((math.ceil((limestone.getItemsMass()/weightLimestone) - 0.5)/maxLimestone)*100))
+local statusLimestone = oreStatus(percentLimestone)
+
+-- Malachite Variables
+local maxMalachite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightMalachite = 5.04 --export:
+local massMalachite = round(math.ceil(malachite.getItemsMass()),1)
+local percentMalachite = math.ceil(((math.ceil((malachite.getItemsMass()/weightMalachite) - 0.5)/maxMalachite)*100))
+local statusMalachite = oreStatus(percentMalachite)
+
+-- Natron Variables
+local maxNatron = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightNatron = 2.65 --export:
+local massNatron = round(math.ceil(natron.getItemsMass()),1)
+local percentNatron = math.ceil(((math.ceil((natron.getItemsMass()/weightNatron) - 0.5)/maxNatron)*100))
+local statusNatron = oreStatus(percentNatron)
+
+
+html = [[
+<div class="bootstrap">
+<h1 style="
+	font-size: 8em;
+">T2 Ore Status</h1>
+<table 
+style="
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 4em;
+">
+	</br>
+	<tr style="
+		width: 100%;
+		margin-bottom: 30px;
+		background-color: blue;
+		color: white;
+	">
+		<th>Ore</th>
+		<th>Qty</th>
+		<th>Levels</th>
+		<th>Status</th>
+	<tr>
+		<th>Chromite</th>
+		<th>]]..massChromite..[[ t</th>
+		<th>]]..percentChromite..[[%</th>
+		]]..statusChromite..[[
+	</tr>
+	<tr>
+		<th>Limestone</th>
+		<th>]]..massLimestone..[[ t</th>
+		<th>]]..percentLimestone..[[%</th>
+		]]..statusLimestone..[[
+	</tr>
+	<tr>
+		<th>Malachite</th>
+		<th>]]..massMalachite..[[ t</th>
+		<th>]]..percentMalachite..[[%</th>
+		]]..statusMalachite..[[
+	</tr>
+	<tr>
+		<th>Natron</th>
+		<th>]]..massNatron..[[ t</th>
+		<th>]]..percentNatron..[[%</th>
+		]]..statusNatron..[[
+	</tr>
+
+</table>
+</div>
+]]
+
+screen.setHTML(html)
