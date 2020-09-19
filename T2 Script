@@ -9,33 +9,56 @@ function oreStatus(percent)
     else return "<th style=\"color: green;\">GOOD</th>"
     end 
 end
-    
+
+local useL = 1 --export: Use 1 for L or 0 for t
+if useL == 1 then
+    unitMeasure = "KL"
+elseif useL == 0 then
+    unitMeasure = "T"
+end
+
 -- Chromite Variables 
-local maxChromite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxChromite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightChromite = 4.54 --export:
-local massChromite = round(math.ceil(chromite.getItemsMass()),1)
+if useL == 1 then
+    massChromite = round(math.ceil(chromite.getItemsMass()/weightChromite),1)
+elseif useL == 0 then
+    massChromite = round(math.ceil(chromite.getItemsMass()),1)
+end
 local percentChromite = math.ceil(((math.ceil((chromite.getItemsMass()/weightChromite) - 0.5)/maxChromite)*100))
 local statusChromite = oreStatus(percentChromite)
 
     
 -- Limestone Variables
-local maxLimestone = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxLimestone = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightLimestone = 2.71 --export:
-local massLimestone = round(math.ceil(limestone.getItemsMass()),1)
+if useL == 1 then
+    massLimestone = round(math.ceil(limestone.getItemsMass()/weightLimestone),1)
+elseif useL == 0 then
+    massLimestone = round(math.ceil(limestone.getItemsMass()),1)
+end
 local percentLimestone = math.ceil(((math.ceil((limestone.getItemsMass()/weightLimestone) - 0.5)/maxLimestone)*100))
 local statusLimestone = oreStatus(percentLimestone)
 
 -- Malachite Variables
-local maxMalachite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxMalachite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightMalachite = 4.00 --export:
-local massMalachite = round(math.ceil(malachite.getItemsMass()),1)
+if useL == 1 then
+    massMalachite = round(math.ceil(malachite.getItemsMass()/weightMalachite),1)
+elseif useL == 0 then
+    massMalachite = round(math.ceil(malachite.getItemsMass()),1)
+end
 local percentMalachite = math.ceil(((math.ceil((malachite.getItemsMass()/weightMalachite) - 0.5)/maxMalachite)*100))
 local statusMalachite = oreStatus(percentMalachite)
 
 -- Natron Variables
-local maxNatron = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxNatron = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightNatron = 1.55 --export:
-local massNatron = round(math.ceil(natron.getItemsMass()),1)
+if useL == 1 then
+    massNatron = round(math.ceil(natron.getItemsMass()/weightNatron),1)
+elseif useL == 0 then
+    massNatron = round(math.ceil(natron.getItemsMass()),1)
+end
 local percentNatron = math.ceil(((math.ceil((natron.getItemsMass()/weightNatron) - 0.5)/maxNatron)*100))
 local statusNatron = oreStatus(percentNatron)
 
@@ -66,25 +89,25 @@ style="
 		<th>Status</th>
 	<tr>
 		<th>Chromite</th>
-		<th>]]..massChromite..[[ t</th>
+		<th>]]..massChromite..unitMeasure..[[</th>
 		<th>]]..percentChromite..[[%</th>
 		]]..statusChromite..[[
 	</tr>
 	<tr>
 		<th>Limestone</th>
-		<th>]]..massLimestone..[[ t</th>
+		<th>]]..massLimestone..unitMeasure..[[</th>
 		<th>]]..percentLimestone..[[%</th>
 		]]..statusLimestone..[[
 	</tr>
 	<tr>
 		<th>Malachite</th>
-		<th>]]..massMalachite..[[ t</th>
+		<th>]]..massMalachite..unitMeasure..[[</th>
 		<th>]]..percentMalachite..[[%</th>
 		]]..statusMalachite..[[
 	</tr>
 	<tr>
 		<th>Natron</th>
-		<th>]]..massNatron..[[ t</th>
+		<th>]]..massNatron..unitMeasure..[[</th>
 		<th>]]..percentNatron..[[%</th>
 		]]..statusNatron..[[
 	</tr>
