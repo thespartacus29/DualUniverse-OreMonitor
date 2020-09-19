@@ -9,31 +9,58 @@ function oreStatus(percent)
     else return "<th style=\"color: green;\">GOOD</th>"
     end 
 end
-    
+
+local useL = 1 --export: Use 1 for L or 0 for t
+if useL == 1 then
+    unitMeasure = "KL"
+elseif useL == 0 then
+    unitMeasure = "T"
+end
+
 -- Columbite Variables 
-local maxColumbite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxColumbite = 10400 --export:This is the maximum mass allowed in container. Update as needed
 local weightColumbite = 5.38 --export:
+if useL == 1 then
+    
+elseif useL == 0 then
+    
+end
 local massColumbite = round(math.ceil(columbite.getItemsMass()),1)
 local percentColumbite = math.ceil(((math.ceil((columbite.getItemsMass()/weightColumbite) - 0.5)/maxColumbite)*100))
 local statusColumbite = oreStatus(percentColumbite)
     
 -- Illmenite Variables
-local maxIllmenite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxIllmenite = 10400 --export:This is the maximum mass allowed in container. Update as needed
 local weightIllmenite = 4.55 --export:
+if useL == 1 then
+    
+elseif useL == 0 then
+    
+end
 local massIllmenite = round(math.ceil(illmenite.getItemsMass()),1)
 local percentIllmenite = math.ceil(((math.ceil((illmenite.getItemsMass()/weightIllmenite) - 0.5)/maxIllmenite)*100))
 local statusIllmenite = oreStatus(percentIllmenite)
 
 -- Rhodonite Variables
-local maxRhodonite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxRhodonite = 10400 --export:This is the maximum mass allowed in container. Update as needed
 local weightRhodonite = 3.76 --export:
+if useL == 1 then
+    
+elseif useL == 0 then
+    
+end
 local massRhodonite = round(math.ceil(rhodonite.getItemsMass()),1)
 local percentRhodonite = math.ceil(((math.ceil((rhodonite.getItemsMass()/weightRhodonite) - 0.5)/maxRhodonite)*100))
 local statusRhodonite = oreStatus(percentRhodonite)
 
 -- Vanadinite Variables
-local maxVanadinite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxVanadinite = 10400 --export:This is the maximum mass allowed in container. Update as needed
 local weightVanadinite = 6.95 --export:
+if useL == 1 then
+    
+elseif useL == 0 then
+    
+end
 local massVanadinite = round(math.ceil(vanadinite.getItemsMass()),1)
 local percentVanadinite = math.ceil(((math.ceil((vanadinite.getItemsMass()/weightVanadinite) - 0.5)/maxVanadinite)*100))
 local statusVanadinite = oreStatus(percentVanadinite)
@@ -65,25 +92,25 @@ style="
 		<th>Status</th>
 	<tr>
 		<th>Columbite</th>
-		<th>]]..massColumbite..[[ t</th>
+		<th>]]..massColumbite..unitMeasure..[[</th>
 		<th>]]..percentColumbite..[[%</th>
 		]]..statusColumbite..[[
 	</tr>
 	<tr>
 		<th>Illmenite</th>
-		<th>]]..massIllmenite..[[ t</th>
+		<th>]]..massIllmenite..unitMeasure..[[</th>
 		<th>]]..percentIllmenite..[[%</th>
 		]]..statusIllmenite..[[
 	</tr>
 	<tr>
 		<th>Rhodonite</th>
-		<th>]]..massRhodonite..[[ t</th>
+		<th>]]..massRhodonite..unitMeasure..[[</th>
 		<th>]]..percentRhodonite..[[%</th>
 		]]..statusRhodonite..[[
 	</tr>	
 	<tr>
 		<th>Vanadinite</th>
-		<th>]]..massVanadinite..[[ t</th>
+		<th>]]..massVanadinite..unitMeasure..[[</th>
 		<th>]]..percentVanadinite..[[%</th>
 		]]..statusVanadinite..[[
 	</tr>
