@@ -9,32 +9,55 @@ function oreStatus(percent)
     else return "<th style=\"color: green;\">GOOD</th>"
     end 
 end
+
+local useL = 1 --export: Use 1 for L or 0 for t
+if useL == 1 then
+    unitMeasure = "KL"
+elseif useL == 0 then
+    unitMeasure = "T"
+end
     
 -- Acanthite Variables 
-local maxAcanthite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxAcanthite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightAcanthite = 7.2 --export:
-local massAcanthite = round(math.ceil(acanthite.getItemsMass()),1)
+if useL == 1 then
+    massAcanthite = round(math.ceil(acanthite.getItemsMass()/weightAcanthite),1)
+elseif useL == 0 then
+    massAcanthite = round(math.ceil(acanthite.getItemsMass()),1)
+end
 local percentAcanthite = math.ceil(((math.ceil((acanthite.getItemsMass()/weightAcanthite) - 0.5)/maxAcanthite)*100))
 local statusAcanthite = oreStatus(percentAcanthite)
     
 -- Garnierite Variables
-local maxGarnierite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxGarnierite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightGarnierite = 2.6 --export:
-local massGarnierite = round(math.ceil(garnierite.getItemsMass()),1)
+if useL == 1 then
+    massGarnierite = round(math.ceil(garnierite.getItemsMass()/weightGarnierite),1)
+elseif useL == 0 then
+    massGarnierite = round(math.ceil(garnierite.getItemsMass()),1)
+end
 local percentGarnierite = math.ceil(((math.ceil((garnierite.getItemsMass()/weightGarnierite) - 0.5)/maxGarnierite)*100))
 local statusGarnierite = oreStatus(percentGarnierite)
 
 -- Petalite Variables
-local maxPetalite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxPetalite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightPetalite = 2.41 --export:
-local massPetalite = round(math.ceil(petalite.getItemsMass()),1)
+if useL == 1 then
+    massPetalite = round(math.ceil(petalite.getItemsMass()/weightPetalite),1)
+elseif useL == 0 then
+    massPetalite = round(math.ceil(petalite.getItemsMass()),1)
+end
 local percentPetalite = math.ceil(((math.ceil((petalite.getItemsMass()/weightPetalite) - 0.5)/maxPetalite)*100))
 local statusPetalite = oreStatus(percentPetalite)
 
 -- Pyrite Variables
-local maxPyrite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxPyrite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightPyrite = 5.01 --export:
-local massPyrite = round(math.ceil(pyrite.getItemsMass()),1)
+if useL == 1 then
+    massPyrite = round(math.ceil(pyrite.getItemsMass()/weightPyrite),1)
+elseif useL == 0 then
+    massPyrite = round(math.ceil(pyrite.getItemsMass()),1)
+end
 local percentPyrite = math.ceil(((math.ceil((pyrite.getItemsMass()/weightPyrite) - 0.5)/maxPyrite)*100))
 local statusPyrite = oreStatus(percentPyrite)
 
@@ -65,25 +88,25 @@ style="
 		<th>Status</th>
 	<tr>
 		<th>Acanthite</th>
-		<th>]]..massAcanthite..[[ t</th>
+		<th>]]..massAcanthite..unitMeasure..[[</th>
 		<th>]]..percentAcanthite..[[%</th>
 		]]..statusAcanthite..[[
 	</tr>
 	<tr>
 		<th>Garnierite</th>
-		<th>]]..massGarnierite..[[ t</th>
+		<th>]]..massGarnierite..unitMeasure..[[</th>
 		<th>]]..percentGarnierite..[[%</th>
 		]]..statusGarnierite..[[
 	</tr>
 	<tr>
 		<th>Petalite</th>
-		<th>]]..massPetalite..[[ t</th>
+		<th>]]..massPetalite..unitMeasure..[[</th>
 		<th>]]..percentPetalite..[[%</th>
 		]]..statusPetalite..[[
 	</tr>
 	<tr>
 		<th>Pyrite</th>
-		<th>]]..massPyrite..[[ t</th>
+		<th>]]..massPyrite..unitMeasure..[[</th>
 		<th>]]..percentPyrite..[[%</th>
 		]]..statusPyrite..[[
 	</tr>
