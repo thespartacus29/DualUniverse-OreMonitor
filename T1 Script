@@ -17,7 +17,6 @@ elseif useL == 0 then
     unitMeasure = "T"
 end
 
-
 -- Bauxite Variables 
 local maxBauxite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightBauxite = 1.28 --export:
@@ -28,7 +27,6 @@ elseif useL == 0 then
 end
 local percentBauxite = math.ceil(((math.ceil((bauxite.getItemsMass()/weightBauxite) - 0.5)/maxBauxite)*100))
 local statusBauxite = oreStatus(percentBauxite)
-
     
 -- Coal Variables
 local maxCoal = 10400 --export: This is the maximum mass allowed in container. Update as needed
@@ -41,16 +39,16 @@ end
 local percentCoal = math.ceil(((math.ceil((coal.getItemsMass()/weightCoal) - 0.5)/maxCoal)*100))
 local statusCoal = oreStatus(percentCoal)
 
--- Hermatite Variables
-local maxHermatite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
-local weightHermatite = 5.04 --export:
+-- Hematite Variables
+local maxHematite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local weightHematite = 5.04 --export:
 if useL == 1 then
-    massHermatite = round(math.ceil(hermatite.getItemsMass()/weightHermatite),1)
+    massHematite = round(math.ceil(hematite.getItemsMass()/weightHematite),1)
 elseif useL == 0 then
-    massHermatite = round(math.ceil(hermatite.getItemsMass()),1)
+    massHematite = round(math.ceil(hematite.getItemsMass()),1)
 end
-local percentHermatite = math.ceil(((math.ceil((hermatite.getItemsMass()/weightHermatite) - 0.5)/maxHermatite)*100))
-local statusHermatite = oreStatus(percentHermatite)
+local percentHematite = math.ceil(((math.ceil((hematite.getItemsMass()/weightHematite) - 0.5)/maxHematite)*100))
+local statusHematite = oreStatus(percentHematite)
 
 -- Quartz Variables
 local maxQuartz = 10400 --export:;This is the maximum mass allowed in container. Update as needed
@@ -102,10 +100,10 @@ style="
 		]]..statusCoal..[[
 	</tr>
 	<tr>
-		<th>Hermatite</th>
-		<th>]]..massHermatite..unitMeasure..[[</th>
-		<th>]]..percentHermatite..[[%</th>
-		]]..statusHermatite..[[
+		<th>Hematite</th>
+		<th>]]..massHematite..unitMeasure..[[</th>
+		<th>]]..percentHematite..[[%</th>
+		]]..statusHematite..[[
 	</tr>
 	<tr>
 		<th>Quartz</th>
