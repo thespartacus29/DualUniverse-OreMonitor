@@ -9,34 +9,61 @@ function oreStatus(percent)
     else return "<th style=\"color: green;\">GOOD</th>"
     end 
 end
-    
+
+local useL = 1 --export: Use 1 for L or 0 for t
+if useL == 1 then
+    unitMeasure = "KL"
+elseif useL == 0 then
+    unitMeasure = "T"
+end
+
+
 -- Bauxite Variables 
-local maxBauxite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxBauxite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightBauxite = 1.28 --export:
-local massBauxite = round(math.ceil(bauxite.getItemsMass()),1)
+if useL == 1 then
+    massBauxite = round(math.ceil(bauxite.getItemsMass()/weightBauxite),1)
+elseif useL == 0 then  
+    massBauxite = round(math.ceil(bauxite.getItemsMass()),1)
+end
 local percentBauxite = math.ceil(((math.ceil((bauxite.getItemsMass()/weightBauxite) - 0.5)/maxBauxite)*100))
 local statusBauxite = oreStatus(percentBauxite)
+
     
 -- Coal Variables
-local maxCoal = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxCoal = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightCoal = 1.35 --export:
-local massCoal = round(math.ceil(coal.getItemsMass()),1)
+if useL == 1 then
+	massCoal = round(math.ceil(coal.getItemsMass()/weightCoal),1)
+elseif useL == 0 then
+   	massCoal = round(math.ceil(coal.getItemsMass()),1)
+end
 local percentCoal = math.ceil(((math.ceil((coal.getItemsMass()/weightCoal) - 0.5)/maxCoal)*100))
 local statusCoal = oreStatus(percentCoal)
 
 -- Hermatite Variables
 local maxHermatite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
 local weightHermatite = 5.04 --export:
-local massHermatite = round(math.ceil(hermatite.getItemsMass()),1)
+if useL == 1 then
+    massHermatite = round(math.ceil(hermatite.getItemsMass()/weightHermatite),1)
+elseif useL == 0 then
+    massHermatite = round(math.ceil(hermatite.getItemsMass()),1)
+end
 local percentHermatite = math.ceil(((math.ceil((hermatite.getItemsMass()/weightHermatite) - 0.5)/maxHermatite)*100))
 local statusHermatite = oreStatus(percentHermatite)
 
 -- Quartz Variables
 local maxQuartz = 10400 --export:;This is the maximum mass allowed in container. Update as needed
 local weightQuartz = 2.65 --export:
-local massQuartz = round(math.ceil(quartz.getItemsMass()),1)
+if useL == 1 then
+    massQuartz = round(math.ceil(quartz.getItemsMass()/weightQuartz),1)
+elseif useL == 0 then
+    massQuartz = round(math.ceil(quartz.getItemsMass()),1)
+end
+
 local percentQuartz = math.ceil(((math.ceil((quartz.getItemsMass()/weightQuartz) - 0.5)/maxQuartz)*100))
 local statusQuartz = oreStatus(percentQuartz)
+
 
 html = [[
 <div class="bootstrap">
@@ -64,25 +91,25 @@ style="
 		<th>Status</th>
 	<tr>
 		<th>Bauxite</th>
-		<th>]]..massBauxite..[[ t</th>
+		<th>]]..massBauxite..unitMeasure..[[</th>
 		<th>]]..percentBauxite..[[%</th>
 		]]..statusBauxite..[[
 	</tr>
 	<tr>
 		<th>Coal</th>
-		<th>]]..massCoal..[[ t</th>
+		<th>]]..massCoal..unitMeasure..[[</th>
 		<th>]]..percentCoal..[[%</th>
 		]]..statusCoal..[[
 	</tr>
 	<tr>
 		<th>Hermatite</th>
-		<th>]]..massHermatite..[[ t</th>
+		<th>]]..massHermatite..unitMeasure..[[</th>
 		<th>]]..percentHermatite..[[%</th>
 		]]..statusHermatite..[[
 	</tr>
 	<tr>
 		<th>Quartz</th>
-		<th>]]..massQuartz..[[ t</th>
+		<th>]]..massQuartz..unitMeasure..[[</th>
 		<th>]]..percentQuartz..[[%</th>
 		]]..statusQuartz..[[
 	</tr>
