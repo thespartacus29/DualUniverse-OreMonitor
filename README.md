@@ -1,6 +1,9 @@
 # DualUniverse-OreMonitor
 This set of LUA scripts will help you setup screens that display ore name | quantity in tons | % of how full a container is | status color coded based on ore % levels
 
+## Change Log
+9/18/2020 - Added a parameter call useL which by default is set to 1. By default the Qty value now displays the amount of ore in L rather than the total mass of the ore in tons. However, you can change the useL parameter to 0 to display the mass in tons. If you want to show mass you need to set the useL parameter to 0 in each board.
+
 ## Elements required
 
 - 5 Screens M
