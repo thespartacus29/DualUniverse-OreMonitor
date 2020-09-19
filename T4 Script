@@ -9,32 +9,54 @@ function oreStatus(percent)
     else return "<th style=\"color: green;\">GOOD</th>"
     end 
 end
-    
+local useL = 1 --export: Use 1 for L or 0 for t
+if useL == 1 then
+    unitMeasure = "KL"
+elseif useL == 0 then
+    unitMeasure = "T"
+end
+
 -- Cobaltite Variables 
-local maxCobaltite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxCobaltite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightCobaltite = 6.33 --export:
-local massCobaltite = round(math.ceil(cobaltite.getItemsMass()),1)
+if useL == 1 then
+    massCobaltite = round(math.ceil(cobaltite.getItemsMass()/weightCobaltite),1)
+elseif useL == 0 then
+    massCobaltite = round(math.ceil(cobaltite.getItemsMass()),1)
+end
 local percentCobaltite = math.ceil(((math.ceil((cobaltite.getItemsMass()/weightCobaltite) - 0.5)/maxCobaltite)*100))
 local statusCobaltite = oreStatus(percentCobaltite)
     
 -- Cryolite Variables
-local maxCryolite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxCryolite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightCryolite = 2.95  --export:
-local massCryolite = round(math.ceil(cryolite.getItemsMass()),1)
+if useL == 1 then
+    massCryolite = round(math.ceil(cryolite.getItemsMass()/weightCryolite),1)
+elseif useL == 0 then
+    massCryolite = round(math.ceil(cryolite.getItemsMass()),1)
+end
 local percentCryolite = math.ceil(((math.ceil((cryolite.getItemsMass()/weightCryolite) - 0.5)/maxCryolite)*100))
 local statusCryolite = oreStatus(percentCryolite)
 
 -- Gold Variables
-local maxGold = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxGold = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightGold = 19.3  --export:
-local massGold = round(math.ceil(gold.getItemsMass()),1)
+if useL == 1 then
+    massGold = round(math.ceil(gold.getItemsMass()/weightGold),1)
+elseif useL == 0 then
+    massGold = round(math.ceil(gold.getItemsMass()),1)
+end
 local percentGold = math.ceil(((math.ceil((gold.getItemsMass()/weightGold) - 0.5)/maxGold)*100))
 local statusGold = oreStatus(percentGold)
 
 -- Kolbeckite Variables
-local maxKolbeckite = 10400 --export:;This is the maximum mass allowed in container. Update as needed
+local maxKolbeckite = 10400 --export: This is the maximum mass allowed in container. Update as needed
 local weightKolbeckite = 2.37  --export:
-local massKolbeckite = round(math.ceil(kolbeckite.getItemsMass()),1)
+if useL == 1 then
+    massKolbeckite = round(math.ceil(kolbeckite.getItemsMass()/weightKolbeckite),1)
+elseif useL == 0 then
+    massKolbeckite = round(math.ceil(kolbeckite.getItemsMass()),1)
+end
 local percentKolbeckite = math.ceil(((math.ceil((kolbeckite.getItemsMass()/weightKolbeckite) - 0.5)/maxKolbeckite)*100))
 local statusKolbeckite = oreStatus(percentKolbeckite)
 
@@ -65,25 +87,25 @@ style="
 		<th>Status</th>
 	<tr>
 		<th>Cobaltite</th>
-		<th>]]..massCobaltite..[[ t</th>
+		<th>]]..massCobaltite..unitMeasure..[[</th>
 		<th>]]..percentCobaltite..[[%</th>
 		]]..statusCobaltite..[[
 	</tr>
 	<tr>
 		<th>Cryolite</th>
-		<th>]]..massCryolite..[[ t</th>
+		<th>]]..massCryolite..unitMeasure..[[</th>
 		<th>]]..percentCryolite..[[%</th>
 		]]..statusCryolite..[[
 	</tr>
 	<tr>
 		<th>Gold</th>
-		<th>]]..massGold..[[ t</th>
+		<th>]]..massGold..unitMeasure..[[</th>
 		<th>]]..percentGold..[[%</th>
 		]]..statusGold..[[
 	</tr>
 	<tr>
 		<th>Kolbeckite</th>
-		<th>]]..massKolbeckite..[[ t</th>
+		<th>]]..massKolbeckite..unitMeasure..[[</th>
 		<th>]]..percentKolbeckite..[[%</th>
 		]]..statusKolbeckite..[[
 	</tr>
